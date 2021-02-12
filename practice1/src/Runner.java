@@ -1,10 +1,11 @@
 import by.gsu.pms.BusinessTrip;
+import by.gsu.pms.Converter;
 
 public class Runner {
     public static void main(String[] args) {
         //task 1
         BusinessTrip[] businessTrips = {
-                new BusinessTrip("Tom", 60000, 6),
+                new BusinessTrip("Tom", 60626, 6),
                 new BusinessTrip("John", 34000, 3),
                 null,
                 new BusinessTrip("Mike", 52000, 7),
@@ -49,5 +50,11 @@ public class Runner {
             }
         }
         System.out.println(account);
+
+        //task 8
+        Converter converter = new Converter(2,2);
+        int total = businessTrips[0].getTotal();
+        System.out.println("Value = "+total);
+        System.out.println("Converted value = "+converter.convert(total));
     }
 }
