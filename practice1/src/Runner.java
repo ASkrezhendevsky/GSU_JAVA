@@ -21,7 +21,7 @@ public class Runner {
         }
 
         //task 3
-        businessTrips[businessTrips.length - 1].setTransportExpanses(3000);
+        businessTrips[businessTrips.length - 1].setTransportExpenses(3000);
 
         //task 4
         System.out.println("Duration = " + (businessTrips[0].getDays() + businessTrips[1].getDays()));

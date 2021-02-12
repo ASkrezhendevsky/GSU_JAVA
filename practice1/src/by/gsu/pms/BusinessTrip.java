@@ -3,16 +3,16 @@ package by.gsu.pms;
 public class BusinessTrip {
     private static final int DAILY_RATE = 25000;
     private String account;
-    private int transportExpanses;
+    private int transportExpenses;
     private int days;
 
     public BusinessTrip() {
         this("",0,0);
     }
 
-    public BusinessTrip(String account, int transportExpanses, int days) {
+    public BusinessTrip(String account, int transportExpenses, int days) {
         this.account = account;
-        this.transportExpanses = transportExpanses;
+        this.transportExpenses = transportExpenses;
         this.days = days;
     }
 
@@ -24,12 +24,12 @@ public class BusinessTrip {
         this.account = account;
     }
 
-    public int getTransportExpanses() {
-        return transportExpanses;
+    public int getTransportExpenses() {
+        return transportExpenses;
     }
 
-    public void setTransportExpanses(int transportExpanses) {
-        this.transportExpanses = transportExpanses;
+    public void setTransportExpenses(int transportExpenses) {
+        this.transportExpenses = transportExpenses;
     }
 
     public int getDays() {
@@ -41,13 +41,13 @@ public class BusinessTrip {
     }
 
     public int getTotal() {
-        return days * DAILY_RATE + transportExpanses;
+        return days * DAILY_RATE + transportExpenses;
     }
 
     public void show() {
         System.out.println("rate = " + DAILY_RATE + "\n"
                 +"account = " + account + "\n"
-                +"transport = " + transportExpanses + "\n"
+                +"transport = " + transportExpenses + "\n"
                 +"days = " + days + "\n"
                 +"total = " + getTotal());
     }
@@ -55,7 +55,7 @@ public class BusinessTrip {
     @Override
     public String toString() {
         final String SEPARATOR = ";";
-        return DAILY_RATE + SEPARATOR + account + SEPARATOR + transportExpanses + SEPARATOR + days +
+        return DAILY_RATE + SEPARATOR + account + SEPARATOR + transportExpenses + SEPARATOR + days +
                 SEPARATOR + getTotal();
     }
 }
