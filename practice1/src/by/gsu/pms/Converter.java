@@ -1,16 +1,16 @@
 package by.gsu.pms;
 
 public class Converter {
-    private final double delimiter;
+    private final double divider;
     private final int roundingNumbers;
 
-    public Converter(double delimiter, int roundingNumbers) {
-        this.delimiter = delimiter;
+    public Converter(double divider, int roundingNumbers) {
+        this.divider = divider;
         this.roundingNumbers = roundingNumbers;
     }
 
-    public int convert(int value){
-        int base = (int)Math.pow(10, roundingNumbers);
-        return (int)Math.round(value/delimiter/base)*base;
+    public double convert(int value) {
+        int base = (int) Math.pow(10, roundingNumbers);
+        return (double) Math.round(value / divider * base) / base;
     }
 }

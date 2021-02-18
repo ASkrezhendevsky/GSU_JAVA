@@ -5,12 +5,14 @@ public class BusinessTrip {
     private String account;
     private int transportExpenses;
     private int days;
+    private Converter converter;
 
     public BusinessTrip() {
         this("",0,0);
     }
 
     public BusinessTrip(String account, int transportExpenses, int days) {
+        this.converter = new Converter(100,2);
         this.account = account;
         this.transportExpenses = transportExpenses;
         this.days = days;
@@ -24,8 +26,8 @@ public class BusinessTrip {
         this.account = account;
     }
 
-    public int getTransportExpenses() {
-        return transportExpenses;
+    public double getTransportExpenses() {
+        return converter.convert(transportExpenses);
     }
 
     public void setTransportExpenses(int transportExpenses) {
@@ -40,14 +42,14 @@ public class BusinessTrip {
         this.days = days;
     }
 
-    public int getTotal() {
-        return days * DAILY_RATE + transportExpenses;
+    public double getTotal() {
+        return converter.convert(days * DAILY_RATE + transportExpenses);
     }
 
     public void show() {
-        System.out.println("rate = " + DAILY_RATE + "\n"
+        System.out.println("rate = " + converter.convert(DAILY_RATE) + "\n"
                 +"account = " + account + "\n"
-                +"transport = " + transportExpenses + "\n"
+                +"transport = " + getTransportExpenses() + "\n"
                 +"days = " + days + "\n"
                 +"total = " + getTotal());
     }
@@ -55,7 +57,7 @@ public class BusinessTrip {
     @Override
     public String toString() {
         final String SEPARATOR = ";";
-        return DAILY_RATE + SEPARATOR + account + SEPARATOR + transportExpenses + SEPARATOR + days +
+        return converter.convert(DAILY_RATE) + SEPARATOR + account + SEPARATOR + getTransportExpenses() + SEPARATOR + days +
                 SEPARATOR + getTotal();
     }
 }
