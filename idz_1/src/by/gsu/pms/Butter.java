@@ -1,12 +1,12 @@
 package by.gsu.pms;
 
-public class Butter implements Comparable<Butter>{
+public class Butter implements Comparable<Butter> {
     private String name;
     private int price;
     private boolean hasSupplements;
 
     public Butter() {
-        this("",0,false);
+        this("", 0, false);
     }
 
     public Butter(String name, int price, boolean hasSupplements) {
@@ -41,8 +41,7 @@ public class Butter implements Comparable<Butter>{
 
     @Override
     public int compareTo(Butter butter) {
-        int result = price - butter.getPrice();
-        return result;
+        return price - butter.getPrice();
     }
 
     @Override

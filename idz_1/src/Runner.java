@@ -39,8 +39,8 @@ public class Runner {
             total += butter.getPrice();
         }
 
-        System.out.println("Total = "+total);
-        System.out.println("Number of butters that has supplements = "+numberOfHasSupplements);
+        System.out.println("Total = " + total);
+        System.out.println("Number of butters that has supplements = " + numberOfHasSupplements);
 
         Arrays.sort(butters, new ButterNameComparator());
 

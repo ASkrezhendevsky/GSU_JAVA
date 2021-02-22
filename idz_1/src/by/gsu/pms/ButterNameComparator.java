@@ -6,15 +6,15 @@ public class ButterNameComparator implements Comparator<Butter> {
 
     @Override
     public int compare(Butter butter1, Butter butter2) {
-        if(butter1 == butter2){
+        if (butter1 == butter2) {
             return 0;
         }
 
-        if(butter1 == null){
+        if (butter1 == null) {
             return 1;
         }
 
-        if(butter2 == null){
+        if (butter2 == null) {
             return -1;
         }
 
