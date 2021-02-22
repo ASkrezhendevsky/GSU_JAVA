@@ -1,4 +1,7 @@
 import by.gsu.pms.Butter;
+import by.gsu.pms.ButterComparator;
+
+import java.util.Arrays;
 
 public class Runner {
     public static void main(String[] args) {
@@ -17,23 +20,7 @@ public class Runner {
         System.out.println("\nBefore sorting");
         printButters(butters);
 
-        Butter butterBuf;
-        int minButterIndex = 0;
-        int sortedPartHead = 0;
-        for (int i = 0; i < butters.length; i++) {
-            for (int j = sortedPartHead; j < butters.length; j++) {
-                if (butters[j] == null) {
-                    continue;
-                }
-                if (butters[j].compareTo(butters[minButterIndex]) < 0) {
-                    minButterIndex = j;
-                }
-            }
-            butterBuf = butters[minButterIndex];
-            butters[minButterIndex] = butters[sortedPartHead];
-            butters[sortedPartHead] = butterBuf;
-            sortedPartHead++;
-        }
+        Arrays.sort(butters, new ButterComparator());
 
         System.out.println("\nSorted array:");
         printButters(butters);
