@@ -15,6 +15,10 @@ public class Butter implements Comparable<Butter> {
         this.hasSupplements = hasSupplements;
     }
 
+    public Butter(String name, int price){
+        this(name, price, false);
+    }
+
     public String getName() {
         return name;
     }
