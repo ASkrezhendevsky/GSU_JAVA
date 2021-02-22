@@ -42,9 +42,6 @@ public class Butter implements Comparable<Butter>{
     @Override
     public int compareTo(Butter butter) {
         int result = price - butter.getPrice();
-        if(result == 0){
-            result = name.compareTo(butter.getName());
-        }
         return result;
     }
 

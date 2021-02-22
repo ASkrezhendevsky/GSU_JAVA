@@ -1,5 +1,6 @@
 import by.gsu.pms.Butter;
-import by.gsu.pms.ButterComparator;
+import by.gsu.pms.ButterNameComparator;
+import by.gsu.pms.ButterPriceComparator;
 
 import java.util.Arrays;
 
@@ -20,9 +21,9 @@ public class Runner {
         System.out.println("\nBefore sorting");
         printButters(butters);
 
-        Arrays.sort(butters, new ButterComparator());
+        Arrays.sort(butters, new ButterPriceComparator());
 
-        System.out.println("\nSorted array:");
+        System.out.println("\nSorted by price array:");
         printButters(butters);
 
         int total = 0;
@@ -41,7 +42,9 @@ public class Runner {
         System.out.println("Total = "+total);
         System.out.println("Number of butters that has supplements = "+numberOfHasSupplements);
 
-        System.out.println("\nResult array:");
+        Arrays.sort(butters, new ButterNameComparator());
+
+        System.out.println("\nSorted by name array:");
         printButters(butters);
     }
 

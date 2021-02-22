@@ -2,7 +2,7 @@ package by.gsu.pms;
 
 import java.util.Comparator;
 
-public class ButterComparator implements Comparator<Butter> {
+public class ButterPriceComparator implements Comparator<Butter> {
     @Override
     public int compare(Butter butter1, Butter butter2) {
         if(butter1 == butter2){
