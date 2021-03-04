@@ -1,15 +1,15 @@
 package by.gsu.asoilab;
 
-public class UniformMaterial {
+public class Subject {
     private String name;
     private Material material;
     private double volume;
 
-    public UniformMaterial(){
+    public Subject(){
         this("", new Material(), 0);
     }
 
-    public UniformMaterial(String name, Material material, double volume) {
+    public Subject(String name, Material material, double volume) {
         this.name = name;
         this.material = material;
         this.volume = volume;
