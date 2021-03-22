@@ -1,7 +1,7 @@
 package by.gsu.pms;
 
 public class PercentDiscountPurchase extends AbstractPurchase{
-    private int discount;
+    private double discount;
 
     public PercentDiscountPurchase(Commodity commodity, int number, int discount) {
         super(commodity, number);
@@ -18,7 +18,7 @@ public class PercentDiscountPurchase extends AbstractPurchase{
 
     @Override
     public Byn getCost() {
-        return super.getCost().mul(discount);
+        return super.getCost().mul((100 - discount)/100);
     }
 
     @Override

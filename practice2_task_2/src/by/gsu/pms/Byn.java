@@ -2,9 +2,9 @@ package by.gsu.pms;
 import java.util.Scanner;
 
 public class Byn implements Comparable<Byn> {
-    private int value;
+    private final int value;
 
-    public Byn(){ }
+    public Byn(){ this(0); }
 
     public Byn(int value){
         this.value = value;
@@ -23,20 +23,20 @@ public class Byn implements Comparable<Byn> {
     }
 
     public Byn add(Byn otherByn) {
-        value += otherByn.value;
-        return this;
+        return new Byn(value + otherByn.value);
     }
 
     public Byn sub(Byn otherByn){
-        value -= otherByn.value;
-        return this;
+        return new Byn(value - otherByn.value);
     }
 
     public Byn mul(int multiplier){
-        value *= multiplier;
-        return this;
+        return new Byn(value * multiplier);
     }
 
+    public Byn mul(double multiplier){
+        return new Byn((int)Math.round(value * multiplier));
+    }
 
     @Override
     public String toString() {

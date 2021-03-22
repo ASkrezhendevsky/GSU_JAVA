@@ -3,8 +3,9 @@ package by.gsu.pms;
 public class TransportExpensesPurchase extends AbstractPurchase{
     private Byn transportExpenses;
 
-    public TransportExpensesPurchase(Commodity commodity, int number) {
+    public TransportExpensesPurchase(Commodity commodity, int number, Byn transportExpenses) {
         super(commodity, number);
+        this.transportExpenses = transportExpenses;
     }
 
     public Byn getTransportExpenses() {
