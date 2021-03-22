@@ -21,6 +21,11 @@ public class PriceDiscountPurchase extends AbstractPurchase {
     }
 
     @Override
+    public Byn getCost() {
+        return super.getCost().sub(dicount);
+    }
+
+    @Override
     protected String fieldsToString() {
         return super.fieldsToString() + dicount;
     }
