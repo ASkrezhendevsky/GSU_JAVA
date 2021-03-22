@@ -1,32 +1,32 @@
 package by.gsu.pms;
 
 public class PriceDiscountPurchase extends AbstractPurchase {
-    private Byn dicount;
+    private Byn discount;
 
-    public PriceDiscountPurchase(Commodity commodity, int number, Byn dicount) {
+    public PriceDiscountPurchase(Commodity commodity, int number, Byn discount) {
         super(commodity, number);
-        this.dicount = dicount;
+        this.discount = discount;
     }
 
-    public Byn getDicount() {
-        return dicount;
+    public Byn getDiscount() {
+        return discount;
     }
 
-    public void setDicount(Byn dicount) {
-        this.dicount = dicount;
+    public void setDiscount(Byn discount) {
+        this.discount = discount;
     }
 
-    public PriceDiscountPurchase(Byn dicount) {
-        this.dicount = dicount;
+    public PriceDiscountPurchase(Byn discount) {
+        this.discount = discount;
     }
 
     @Override
     public Byn getCost() {
-        return super.getCost().sub(dicount);
+        return super.getCost().sub(discount);
     }
 
     @Override
     protected String fieldsToString() {
-        return super.fieldsToString() + dicount;
+        return super.fieldsToString() + discount;
     }
 }
