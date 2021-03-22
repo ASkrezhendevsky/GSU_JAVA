@@ -3,7 +3,7 @@ package by.gsu.pms;
 public class PercentDiscountPurchase extends AbstractPurchase{
     private int discount;
 
-    public PercentDiscountPurchase(Commodity commodity, int number, double discount) {
+    public PercentDiscountPurchase(Commodity commodity, int number, int discount) {
         super(commodity, number);
         this.discount = discount;
     }
@@ -12,7 +12,7 @@ public class PercentDiscountPurchase extends AbstractPurchase{
         return discount;
     }
 
-    public void setDiscount(double discount) {
+    public void setDiscount(int discount) {
         this.discount = discount;
     }
 
