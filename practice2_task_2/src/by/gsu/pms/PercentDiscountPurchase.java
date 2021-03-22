@@ -1,7 +1,7 @@
 package by.gsu.pms;
 
 public class PercentDiscountPurchase extends AbstractPurchase{
-    int double discount;
+    private int discount;
 
     public PercentDiscountPurchase(Commodity commodity, int number, double discount) {
         super(commodity, number);
