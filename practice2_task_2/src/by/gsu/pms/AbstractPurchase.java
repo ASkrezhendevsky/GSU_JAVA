@@ -34,8 +34,12 @@ public abstract class AbstractPurchase implements Comparable<AbstractPurchase>{
     }
 
     @Override
-    public String toString() {
-        return commodity + ";" + number;
+    public final String toString() {
+        return fieldsToString() + ";" + getCost();
+    }
+
+    protected String fieldsToString(){
+        return  commodity + ";" + number;
     }
 
     @Override
