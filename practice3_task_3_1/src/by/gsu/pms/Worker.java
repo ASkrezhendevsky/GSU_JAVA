@@ -1,6 +1,6 @@
 package by.gsu.pms;
 
-public class Worker implements Employee, Person{
+public abstract class Worker implements Employee, Person{
     private String machine;
     private String name;
 
