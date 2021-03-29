@@ -1,15 +1,26 @@
 package by.gsu.pms;
 
-public class Foreman extends Person implements Employee{
+public class Foreman implements Employee, Person{
     private int computerNum;
+    private String name;
 
     public Foreman(String name, int computerNum){
-        super(name);
+        this.name = name;
         this.computerNum = computerNum;
     }
 
     @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
     public String toString() {
-        return super.toString() + ";" + computerNum;
+        return name + ";" + computerNum;
     }
 }

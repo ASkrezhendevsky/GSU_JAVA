@@ -1,15 +1,26 @@
 package by.gsu.pms;
 
-public class Director extends Person implements Employee{
+public class Director implements Employee, Person{
     private int roomNum;
+    private String name;
 
     public Director(String name, int roomNum){
-        super(name);
+        this.name = name;
         this.roomNum = roomNum;
     }
 
     @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
     public String toString() {
-        return super.toString() + ";" + roomNum;
+        return name + ";" + roomNum;
     }
 }

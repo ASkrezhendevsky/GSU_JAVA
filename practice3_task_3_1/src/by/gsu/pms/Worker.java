@@ -1,15 +1,26 @@
 package by.gsu.pms;
 
-public class Worker extends Person implements Employee{
+public class Worker implements Employee, Person{
     private String machine;
+    private String name;
 
     public Worker(String name, String machine){
-        super(name);
+        this.name = name;
         this.machine = machine;
     }
 
     @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
     public String toString() {
-        return super.toString() + ";" + machine;
+        return name + ";" + machine;
     }
 }
