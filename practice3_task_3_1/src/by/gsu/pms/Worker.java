@@ -1,6 +1,6 @@
 package by.gsu.pms;
 
-public class Worker extends Employee{
+public class Worker extends Person implements Employee{
     private String machine;
 
     public Worker(String name, String machine){

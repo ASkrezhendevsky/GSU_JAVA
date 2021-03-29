@@ -1,6 +1,6 @@
 package by.gsu.pms;
 
-public class Director extends Employee{
+public class Director extends Person implements Employee{
     private int roomNum;
 
     public Director(String name, int roomNum){

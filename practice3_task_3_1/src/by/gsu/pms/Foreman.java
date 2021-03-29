@@ -1,6 +1,6 @@
 package by.gsu.pms;
 
-public class Foreman extends Employee{
+public class Foreman extends Person implements Employee{
     private int computerNum;
 
     public Foreman(String name, int computerNum){
