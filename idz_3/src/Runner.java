@@ -2,12 +2,6 @@ import by.gsu.pms.Butter;
 import by.gsu.pms.ButterDeserialization;
 import by.gsu.pms.ButterSerialization;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.util.concurrent.BlockingQueue;
-
 public class Runner {
     public static void main(String[] args) {
         Butter[] butters = {
@@ -43,11 +37,5 @@ public class Runner {
 
         System.out.println("Total = " + total);
         System.out.println("Number of butters that has supplements = " + numberOfHasSupplements);
-    }
-
-    private static void printButters(Butter[] butters) {
-        for (Butter butter : butters) {
-            System.out.println(butter);
-        }
     }
 }
