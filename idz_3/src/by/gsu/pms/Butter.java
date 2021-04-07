@@ -1,6 +1,8 @@
 package by.gsu.pms;
 
-public class Butter implements Comparable<Butter>{
+import java.io.Serializable;
+
+public class Butter implements Serializable, Comparable<Butter> {
     private String name;
     private int price;
     private boolean hasSupplements;
@@ -15,7 +17,7 @@ public class Butter implements Comparable<Butter>{
         this.hasSupplements = hasSupplements;
     }
 
-    public Butter(String name, int price){
+    public Butter(String name, int price) {
         this(name, price, false);
     }
 
