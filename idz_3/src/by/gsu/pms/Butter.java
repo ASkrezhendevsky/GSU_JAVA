@@ -1,6 +1,7 @@
 package by.gsu.pms;
 
 import java.io.Serializable;
+import java.util.Scanner;
 
 public class Butter implements Serializable, Comparable<Butter> {
     private String name;
@@ -15,6 +16,10 @@ public class Butter implements Serializable, Comparable<Butter> {
         this.name = name;
         this.price = price;
         this.hasSupplements = hasSupplements;
+    }
+
+    public Butter(Scanner scanner){
+        this(scanner.next(), scanner.nextInt(), scanner.nextBoolean());
     }
 
     public Butter(String name, int price) {

@@ -2,40 +2,44 @@ import by.gsu.pms.Butter;
 import by.gsu.pms.ButterDeserialization;
 import by.gsu.pms.ButterSerialization;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.util.Scanner;
+
 public class Runner {
     public static void main(String[] args) {
-        Butter[] butters = {
-                new Butter("name 1", 356, false),
-                new Butter("name 2", 427, false),
-                new Butter("name 3", 399, true),
-                new Butter("name 4", 331, false),
-                new Butter("name 5", 349, true),
-                new Butter("name 6", 331, false),
-                new Butter("name 7", 361, true),
-                new Butter("name 8", 377, true),
-                new Butter(),
-                null
-        };
+        final int MAX_BUTTERS = 10;
+        Butter[] butters = new Butter[MAX_BUTTERS];
+        final String CSV_FILE = "src/butter.scv";
 
-        final String serializationFile = "butter.dat";
-
-        ButterSerialization.serialize(butters, serializationFile);
-        butters = ButterDeserialization.deserialize(serializationFile);
-
-        int total = 0;
-        int numberOfHasSupplements = 0;
-
-        for (Butter butter : butters) {
-            if (butter == null) {
-                continue;
+        try (Scanner scanner = new Scanner(new FileReader(CSV_FILE))) {
+            for (int i = 0; i < MAX_BUTTERS; i++) {
+                butters[i] = new Butter(scanner);
             }
-            if (butter.isHasSupplements()) {
-                numberOfHasSupplements++;
+            final String DAT_FILE = "src/butter.dat";
+
+            ButterSerialization.serialize(butters, DAT_FILE);
+            butters = ButterDeserialization.deserialize(DAT_FILE);
+
+            int total = 0;
+            int numberOfHasSupplements = 0;
+
+            for (Butter butter : butters) {
+                System.out.println(butter);
+
+                if (butter == null) {
+                    continue;
+                }
+                if (butter.isHasSupplements()) {
+                    numberOfHasSupplements++;
+                }
+                total += butter.getPrice();
             }
-            total += butter.getPrice();
+
+            System.out.println("Total = " + total);
+            System.out.println("Number of butters that has supplements = " + numberOfHasSupplements);
+        }catch (FileNotFoundException e){
+            System.err.println("File not found");
         }
-
-        System.out.println("Total = " + total);
-        System.out.println("Number of butters that has supplements = " + numberOfHasSupplements);
     }
 }
