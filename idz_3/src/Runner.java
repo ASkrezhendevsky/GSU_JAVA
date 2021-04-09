@@ -2,8 +2,7 @@ import by.gsu.pms.Butter;
 import by.gsu.pms.ButterDeserialization;
 import by.gsu.pms.ButterSerialization;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.io.*;
 import java.util.Scanner;
 
 public class Runner {
@@ -17,6 +16,7 @@ public class Runner {
                 butters[i] = new Butter(scanner);
             }
             final String DAT_FILE = "src/butter.dat";
+            final String EXTERNALIZE_FILE = "src/butterExternalize.dat";
 
             ButterSerialization.serialize(butters, DAT_FILE);
             butters = ButterDeserialization.deserialize(DAT_FILE);
@@ -38,7 +38,7 @@ public class Runner {
 
             System.out.println("Total = " + total);
             System.out.println("Number of butters that has supplements = " + numberOfHasSupplements);
-        }catch (FileNotFoundException e){
+        } catch (FileNotFoundException e) {
             System.err.println("File not found");
         }
     }

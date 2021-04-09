@@ -1,6 +1,6 @@
 package by.gsu.pms;
 
-import java.io.Serializable;
+import java.io.*;
 import java.util.Scanner;
 
 public class Butter implements Serializable, Comparable<Butter> {
