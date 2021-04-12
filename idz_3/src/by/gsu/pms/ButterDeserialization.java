@@ -10,6 +10,7 @@ public class ButterDeserialization {
         try (ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(file))) {
             return (Butter[]) inputStream.readObject();
         } catch (Exception e) {
+            System.err.println("d "+e);
             return new Butter[0];
         }
     }

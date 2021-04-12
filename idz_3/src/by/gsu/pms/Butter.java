@@ -3,7 +3,7 @@ package by.gsu.pms;
 import java.io.*;
 import java.util.Scanner;
 
-public class Butter implements Serializable, Comparable<Butter> {
+public class Butter implements Externalizable, Comparable<Butter> {
     private String name;
     private int price;
     private boolean hasSupplements;
@@ -62,5 +62,19 @@ public class Butter implements Serializable, Comparable<Butter> {
                 ", price=" + price +
                 ", hasSupplements=" + hasSupplements +
                 '}';
+    }
+
+    @Override
+    public void writeExternal(ObjectOutput objectOutput) throws IOException {
+        objectOutput.writeObject(this.name);
+        objectOutput.writeObject(this.price);
+        objectOutput.writeObject(this.hasSupplements);
+    }
+
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException, ClassNotFoundException {
+        this.name = (String)objectInput.readObject();
+        this.price = (Integer) objectInput.readObject();
+        this.hasSupplements = (Boolean) objectInput.readObject();
     }
 }
