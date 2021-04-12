@@ -1,38 +1,42 @@
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.util.Enumeration;
-import java.util.Locale;
-import java.util.ResourceBundle;
-import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import by.gsu.pms.BusinessTrip;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.*;
 
 public class Runner {
     public static void main(String[] args) {
         final String INPUT_FILE = "src/in.txt";
 
-        final String DAILY_RATE_KEY = "daily-rate\\s*=\\s*([1-9]\\d*)";
-        final String INDICES_KEY = "indices\\s*=\\s*(.*)";
-        final String INDICES_VALUES_DELIMITER = "\\s*;\\s*";
+        final String DAILY_RATE_KEY = "daily-rate";
+        final String INDICES_KEY = "indices";
+        final String ACCOUNT_KEY = "account%02d";
+        final String TRANSPORT_KEY = "transport%02d";
+        final String DAYS_KEY = "days%02d";
 
-        try (Scanner scanner = new Scanner(new FileReader(INPUT_FILE))) {
-            scanner.useLocale(Locale.ENGLISH);
+        try (FileInputStream fileInputStream = new FileInputStream(INPUT_FILE)) {
+            ResourceBundle resourceBundle = new PropertyResourceBundle(fileInputStream);
 
-            Matcher keyMatcher = Pattern.compile(DAILY_RATE_KEY).matcher(scanner.nextLine());
-            keyMatcher.matches();
-            int dailyRate = Integer.parseInt(keyMatcher.group(1));
-            System.out.println(dailyRate);
-
-            Matcher indicesMatcher = Pattern.compile(INDICES_KEY).matcher(scanner.nextLine());
-            indicesMatcher.matches();
-            String[] indices = indicesMatcher.group(1).split(INDICES_VALUES_DELIMITER);
+            String[] indices = resourceBundle.getString(INDICES_KEY).split("\\s*;\\s*");
             System.out.println(indices);
+            BusinessTrip[] businessTrips = new BusinessTrip[indices.length];
 
-            while (scanner.hasNext()) {
-                String line = scanner.nextLine();
+            String daylyRate = resourceBundle.getString(DAILY_RATE_KEY);
+            System.out.println(daylyRate);
+
+            Enumeration<String> keys = resourceBundle.getKeys();
+
+            for (int i = 0; i < businessTrips.length; i++) {
+                int index = Integer.parseInt(indices[i]);
+                businessTrips[i] = new BusinessTrip(resourceBundle.getString(String.format(ACCOUNT_KEY, index)),
+                        Integer.parseInt(resourceBundle.getString(String.format(TRANSPORT_KEY, index))),
+                        Integer.parseInt(resourceBundle.getString(String.format(DAYS_KEY, index))));
+                System.out.println(businessTrips[i]);
             }
-        } catch (FileNotFoundException e) {
-            System.err.println("File not found");
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
