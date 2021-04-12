@@ -10,12 +10,11 @@ import java.util.regex.Pattern;
 public class Runner {
     public static void main(String[] args) {
         final String INPUT_FILE = "src/in.txt";
+
         final String DAILY_RATE_KEY = "daily-rate\\s*=\\s*([1-9]\\d*)";
         final String INDICES_KEY = "indices\\s*=\\s*(.*)";
         final String INDICES_VALUES_DELIMITER = "\\s*;\\s*";
-        final String TRANSPORT_KEY = "transport";
-        final String DAYS_KEY = "days";
-        final String ACCOUNT_KEY = "account";
+
         try (Scanner scanner = new Scanner(new FileReader(INPUT_FILE))) {
             scanner.useLocale(Locale.ENGLISH);
 
