@@ -20,11 +20,9 @@ public class Runner {
             String[] indices = resourceBundle.getString(INDICES_KEY).split("\\s*;\\s*");
             BusinessTrip[] businessTrips = new BusinessTrip[indices.length];
 
-            String daylyRate = resourceBundle.getString(DAILY_RATE_KEY);
+            String dailyRate = resourceBundle.getString(DAILY_RATE_KEY);
 
-            BusinessTrip.setDailyRate(Integer.parseInt(daylyRate));
-
-            Enumeration<String> keys = resourceBundle.getKeys();
+            BusinessTrip.setDailyRate(Integer.parseInt(dailyRate));
 
             for (int i = 0; i < businessTrips.length; i++) {
                 int index = Integer.parseInt(indices[i]);

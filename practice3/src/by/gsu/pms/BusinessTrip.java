@@ -1,7 +1,7 @@
 package by.gsu.pms;
 
 public class BusinessTrip implements Comparable<BusinessTrip>{
-    private static int DAILY_RATE = 25000;
+    private static int dailyRate = 25000;
     private String account;
     private int transportExpenses;
     private int days;
@@ -41,20 +41,20 @@ public class BusinessTrip implements Comparable<BusinessTrip>{
     }
 
     public static int getDailyRate() {
-        return DAILY_RATE;
+        return dailyRate;
     }
 
     public static void setDailyRate(int dailyRate) {
-        DAILY_RATE = dailyRate;
+        BusinessTrip.dailyRate = dailyRate;
     }
 
 
     public int getTotal() {
-        return days * DAILY_RATE + transportExpenses;
+        return days * dailyRate + transportExpenses;
     }
 
     public void show() {
-        System.out.println("rate = " + DAILY_RATE + "\n"
+        System.out.println("rate = " + dailyRate + "\n"
                 +"account = " + account + "\n"
                 +"transport = " + getTransportExpenses() + "\n"
                 +"days = " + days + "\n"
@@ -64,7 +64,7 @@ public class BusinessTrip implements Comparable<BusinessTrip>{
     @Override
     public String toString() {
         final String SEPARATOR = ";";
-        return DAILY_RATE + SEPARATOR + account + SEPARATOR + getTransportExpenses() + SEPARATOR + days +
+        return dailyRate + SEPARATOR + account + SEPARATOR + getTransportExpenses() + SEPARATOR + days +
                 SEPARATOR + getTotal();
     }
 
