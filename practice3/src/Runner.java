@@ -18,11 +18,11 @@ public class Runner {
             ResourceBundle resourceBundle = new PropertyResourceBundle(fileInputStream);
 
             String[] indices = resourceBundle.getString(INDICES_KEY).split("\\s*;\\s*");
-            System.out.println(indices);
             BusinessTrip[] businessTrips = new BusinessTrip[indices.length];
 
             String daylyRate = resourceBundle.getString(DAILY_RATE_KEY);
-            System.out.println(daylyRate);
+
+            BusinessTrip.setDailyRate(Integer.parseInt(daylyRate));
 
             Enumeration<String> keys = resourceBundle.getKeys();
 
@@ -31,9 +31,14 @@ public class Runner {
                 businessTrips[i] = new BusinessTrip(resourceBundle.getString(String.format(ACCOUNT_KEY, index)),
                         Integer.parseInt(resourceBundle.getString(String.format(TRANSPORT_KEY, index))),
                         Integer.parseInt(resourceBundle.getString(String.format(DAYS_KEY, index))));
-                System.out.println(businessTrips[i]);
+
             }
 
+            Arrays.sort(businessTrips);
+
+            for (BusinessTrip businessTrip: businessTrips) {
+                System.out.println(businessTrip);
+            }
 
         } catch (IOException e) {
             e.printStackTrace();
