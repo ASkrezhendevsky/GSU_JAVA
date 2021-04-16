@@ -30,8 +30,10 @@ public abstract class AbstractTax implements Comparable<AbstractTax> {
 
     @Override
     public String toString() {
-        return "AbstractTax{" +
-                "year=" + year +
-                '}';
+        return fieldsToString() + getValue();
+    }
+
+    protected String fieldsToString(){
+        return "";
     }
 }

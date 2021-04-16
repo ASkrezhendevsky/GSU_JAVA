@@ -6,7 +6,7 @@ public class PresentTax extends AbstractTax{
     private Byn price;
     private boolean fromRelatives = false;
 
-    private static final Byn MAX_PRICE = new Byn(6000);
+    private static final Byn MAX_PRICE = new Byn(6000000);
 
     public PresentTax(Year year, Byn price, boolean fromRelatives) {
         super(year);
@@ -35,13 +35,5 @@ public class PresentTax extends AbstractTax{
         if(price.compareTo(MAX_PRICE) > 0 && fromRelatives)
             return new Byn(0);
         return price;
-    }
-
-    @Override
-    public String toString() {
-        return "PresentTax{" +
-                "price=" + price +
-                ", fromRelatives=" + fromRelatives +
-                '}';
     }
 }
