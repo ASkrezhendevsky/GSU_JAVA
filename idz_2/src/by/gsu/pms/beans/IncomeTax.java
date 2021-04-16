@@ -8,7 +8,7 @@ public class IncomeTax extends AbstractTax{
     private Byn income;
     private double taxRate;
 
-    IncomeTax(Byn income, double taxRate, Year year){
+    public IncomeTax(Byn income, double taxRate, Year year){
         super(year);
         this.income = income;
         this.taxRate = taxRate;
@@ -33,5 +33,13 @@ public class IncomeTax extends AbstractTax{
     @Override
     Byn getValue() {
         return income.multiply(taxRate, RoundMethod.ROUND);
+    }
+
+    @Override
+    public String toString() {
+        return "IncomeTax{" +
+                "income=" + income +
+                ", taxRate=" + taxRate +
+                '}';
     }
 }

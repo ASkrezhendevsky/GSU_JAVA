@@ -36,4 +36,12 @@ public class PresentTax extends AbstractTax{
             return new Byn(0);
         return price;
     }
+
+    @Override
+    public String toString() {
+        return "PresentTax{" +
+                "price=" + price +
+                ", fromRelatives=" + fromRelatives +
+                '}';
+    }
 }

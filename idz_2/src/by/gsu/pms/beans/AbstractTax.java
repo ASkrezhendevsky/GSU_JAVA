@@ -27,4 +27,11 @@ public abstract class AbstractTax implements Comparable<AbstractTax> {
     public int compareTo(AbstractTax tax) {
         return getValue().compareTo(tax.getValue());
     }
+
+    @Override
+    public String toString() {
+        return "AbstractTax{" +
+                "year=" + year +
+                '}';
+    }
 }

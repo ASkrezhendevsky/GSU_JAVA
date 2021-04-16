@@ -39,7 +39,7 @@ public class Byn implements Comparable<Byn> {
 
     @Override
     public String toString() {
-        return String.format("%d.%2d", value / 100, value % 100);
+        return String.format("%d.%02d", value / 100, value % 100);
     }
 
     @Override
