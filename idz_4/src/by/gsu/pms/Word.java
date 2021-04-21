@@ -4,7 +4,7 @@ public class Word {
     private String text;
 
     public Word(String text) {
-        this.text = text;
+        setText(text);
     }
 
     public String getText() {
@@ -12,6 +12,9 @@ public class Word {
     }
 
     public void setText(String text) {
+        if(text.matches(".*\\s.*")){
+            throw new IllegalArgumentException("word must not contains space");
+        }
         this.text = text;
     }
 
