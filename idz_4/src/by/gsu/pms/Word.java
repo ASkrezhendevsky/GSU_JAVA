@@ -1,7 +1,16 @@
 package by.gsu.pms;
 
+import java.util.Scanner;
+
 public class Word {
     private String text;
+
+    public Word(Scanner scanner){
+        if (!scanner.hasNext()){
+            throw new IllegalArgumentException("Scanner is empty");
+        }
+        setText(scanner.next());
+    }
 
     public Word(String text) {
         setText(text);
