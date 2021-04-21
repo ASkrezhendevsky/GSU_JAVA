@@ -5,11 +5,11 @@ import java.time.Year;
 public abstract class AbstractTax implements Comparable<AbstractTax> {
     private Year year;
 
-    public AbstractTax() {
+    protected AbstractTax() {
 
     }
 
-    public AbstractTax(Year year) {
+    protected AbstractTax(Year year) {
         this.year = year;
     }
 
