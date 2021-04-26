@@ -1,6 +1,8 @@
 import by.gsu.pms.Butter;
 import by.gsu.pms.ButterDeserialization;
+import by.gsu.pms.ButterFactory;
 import by.gsu.pms.ButterSerialization;
+import by.gsu.pms.exceptions.CsvException;
 
 import java.io.*;
 import java.util.Scanner;
@@ -13,10 +15,14 @@ public class Runner {
 
         try (Scanner scanner = new Scanner(new FileReader(CSV_FILE))) {
             for (int i = 0; i < MAX_BUTTERS; i++) {
-                butters[i] = new Butter(scanner);
+                try {
+                    butters[i] = ButterFactory.getButter(scanner);
+                }
+                catch (CsvException e){
+                    continue;
+                }
             }
             final String DAT_FILE = "src/butter.dat";
-            final String EXTERNALIZE_FILE = "src/butterExternalize.dat";
 
             ButterSerialization.serialize(butters, DAT_FILE);
             butters = ButterDeserialization.deserialize(DAT_FILE);

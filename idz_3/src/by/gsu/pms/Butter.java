@@ -18,10 +18,6 @@ public class Butter implements Serializable, Comparable<Butter> {
         this.hasSupplements = hasSupplements;
     }
 
-    public Butter(Scanner scanner){
-        this(scanner.next(), scanner.nextInt(), scanner.nextBoolean());
-    }
-
     public Butter(String name, int price) {
         this(name, price, false);
     }
@@ -39,6 +35,9 @@ public class Butter implements Serializable, Comparable<Butter> {
     }
 
     public void setPrice(int price) {
+        if(price <= 0){
+            throw new IllegalArgumentException("price cannot be 0 or lower");
+        }
         this.price = price;
     }
 
