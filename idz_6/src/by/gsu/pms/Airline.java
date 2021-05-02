@@ -2,6 +2,7 @@ package by.gsu.pms;
 
 import java.time.LocalTime;
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Airline implements Comparable<Airline>{
     private String destination;
@@ -16,6 +17,14 @@ public class Airline implements Comparable<Airline>{
         this.aircraftType = aircraftType;
         this.departureTime = departureTime;
         this.weekDays = weekDays;
+    }
+
+    public Airline(String destination, int flightNumber, String aircraftType, String departureTime, WeekDay[] weekDays){
+        this(destination, flightNumber, aircraftType, LocalTime.parse(departureTime), weekDays);
+    }
+
+    public Airline(Scanner scanner){
+        this(scanner.next(), scanner.nextInt(), scanner.next(), scanner.next(), WeekDay.parseArray(scanner));
     }
 
     public String getDestination() {
