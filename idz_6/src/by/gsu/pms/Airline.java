@@ -1,22 +1,21 @@
 package by.gsu.pms;
 
+import java.time.LocalTime;
 import java.util.Arrays;
-import java.util.Date;
 
 public class Airline implements Comparable<Airline>{
     private String destination;
     private int flightNumber;
     private String aircraftType;
-    private Date departureTime;
+    private LocalTime departureTime;
     private WeekDay[] weekDays;
 
-    public Airline(String destination, int flightNumber, String aircraftType, Date departureTime, WeekDay[] weekDays) {
+    public Airline(String destination, int flightNumber, String aircraftType, LocalTime departureTime, WeekDay[] weekDays) {
         this.destination = destination;
         this.flightNumber = flightNumber;
         this.aircraftType = aircraftType;
         this.departureTime = departureTime;
         this.weekDays = weekDays;
-        Time time = new Time();
     }
 
     public String getDestination() {
@@ -43,11 +42,11 @@ public class Airline implements Comparable<Airline>{
         this.aircraftType = aircraftType;
     }
 
-    public Date getDepartureTime() {
+    public LocalTime getDepartureTime() {
         return departureTime;
     }
 
-    public void setDepartureTime(Date departureTime) {
+    public void setDepartureTime(LocalTime departureTime) {
         this.departureTime = departureTime;
     }
 
@@ -64,7 +63,7 @@ public class Airline implements Comparable<Airline>{
         return "Airline{" +
                 "destination='" + destination + '\'' +
                 ", flightNumber=" + flightNumber +
-                ", aricraftType='" + aircraftType + '\'' +
+                ", aircraftType='" + aircraftType + '\'' +
                 ", departureTime=" + departureTime +
                 ", weekDays=" + Arrays.toString(weekDays) +
                 '}';
