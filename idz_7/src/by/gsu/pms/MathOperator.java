@@ -31,4 +31,8 @@ public enum MathOperator {
 
     public abstract long doOperation(long a, long b);
     public abstract long getInitialValue();
+
+    public static MathOperator parse(String line){
+        return valueOf(line.toUpperCase());
+    }
 }
