@@ -3,7 +3,6 @@ package by.gsu.pms;
 import by.gsu.pms.bean.Valute;
 import by.gsu.pms.util.Constants;
 import by.gsu.pms.util.Tag;
-import by.gsu.pms.util.ValutesHandler;
 import by.gsu.pms.util.XMLSource;
 
 import javax.xml.namespace.QName;
@@ -20,7 +19,6 @@ import java.util.List;
 
 public class RunnerStAX {
     public static void main(String[] args) {
-        String fileName = "F:/students.xml";
         List<Valute> valuteList = parseXMLfile(XMLSource.getInputStream());
 
         System.out.println(valuteList);
@@ -30,8 +28,6 @@ public class RunnerStAX {
         List<Valute> studentsList = new ArrayList<>();
         Valute valute = null;
         XMLInputFactory xmlInputFactory = XMLInputFactory.newInstance();
-
-        ValutesHandler handler = new ValutesHandler();
 
         try {
             XMLEventReader reader = xmlInputFactory.createXMLEventReader(xmlSource);

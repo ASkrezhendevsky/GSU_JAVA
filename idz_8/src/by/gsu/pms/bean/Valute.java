@@ -1,7 +1,5 @@
 package by.gsu.pms.bean;
 
-import org.xml.sax.SAXException;
-
 import java.text.NumberFormat;
 import java.text.ParseException;
 import java.util.Locale;

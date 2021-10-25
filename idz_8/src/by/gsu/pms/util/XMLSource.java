@@ -2,8 +2,6 @@ package by.gsu.pms.util;
 
 import org.xml.sax.InputSource;
 
-import java.awt.event.InputEvent;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
