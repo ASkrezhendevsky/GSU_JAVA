@@ -1,9 +1,9 @@
-package by.gsu.pms.sax;
+package by.gsu.pms;
 
-import by.gsu.pms.sax.bean.Valute;
-import by.gsu.pms.sax.util.Constants;
-import by.gsu.pms.sax.util.Tag;
-import by.gsu.pms.sax.util.XMLSource;
+import by.gsu.pms.bean.Valute;
+import by.gsu.pms.util.Constants;
+import by.gsu.pms.util.Tag;
+import by.gsu.pms.util.XMLSource;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -15,7 +15,6 @@ import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class RunnerDOM {
     public static void main(String[] args) throws IOException, SAXException, ParserConfigurationException {

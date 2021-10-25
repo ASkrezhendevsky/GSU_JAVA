@@ -1,4 +1,4 @@
-package by.gsu.pms.sax.util;
+package by.gsu.pms.util;
 
 import org.xml.sax.InputSource;
 

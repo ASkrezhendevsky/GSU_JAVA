@@ -1,4 +1,4 @@
-package by.gsu.pms.sax.bean;
+package by.gsu.pms.bean;
 
 import org.xml.sax.SAXException;
 

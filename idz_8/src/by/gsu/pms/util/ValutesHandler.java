@@ -1,17 +1,12 @@
-package by.gsu.pms.sax.util;
+package by.gsu.pms.util;
 
-import by.gsu.pms.sax.bean.Valute;
-import by.gsu.pms.sax.util.Constants;
-import by.gsu.pms.sax.util.Tag;
+import by.gsu.pms.bean.Valute;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
-import java.text.NumberFormat;
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 public class ValutesHandler extends DefaultHandler {
     private List<Valute> valutes = new ArrayList<>();

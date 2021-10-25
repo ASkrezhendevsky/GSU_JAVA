@@ -1,4 +1,4 @@
-package by.gsu.pms.sax.util;
+package by.gsu.pms.util;
 
 public enum Tag {
     VALCURS("ValCurs", 0),

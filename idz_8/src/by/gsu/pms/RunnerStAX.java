@@ -1,11 +1,10 @@
-package by.gsu.pms.sax;
+package by.gsu.pms;
 
-import by.gsu.pms.sax.bean.Valute;
-import by.gsu.pms.sax.util.Constants;
-import by.gsu.pms.sax.util.Tag;
-import by.gsu.pms.sax.util.ValutesHandler;
-import by.gsu.pms.sax.util.XMLSource;
-import org.xml.sax.InputSource;
+import by.gsu.pms.bean.Valute;
+import by.gsu.pms.util.Constants;
+import by.gsu.pms.util.Tag;
+import by.gsu.pms.util.ValutesHandler;
+import by.gsu.pms.util.XMLSource;
 
 import javax.xml.namespace.QName;
 import javax.xml.stream.XMLEventReader;
@@ -15,11 +14,9 @@ import javax.xml.stream.events.Attribute;
 import javax.xml.stream.events.EndElement;
 import javax.xml.stream.events.StartElement;
 import javax.xml.stream.events.XMLEvent;
-import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Handler;
 
 public class RunnerStAX {
     public static void main(String[] args) {

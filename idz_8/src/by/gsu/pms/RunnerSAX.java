@@ -1,7 +1,7 @@
-package by.gsu.pms.sax;
+package by.gsu.pms;
 
-import by.gsu.pms.sax.util.ValutesHandler;
-import by.gsu.pms.sax.util.XMLSource;
+import by.gsu.pms.util.ValutesHandler;
+import by.gsu.pms.util.XMLSource;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
