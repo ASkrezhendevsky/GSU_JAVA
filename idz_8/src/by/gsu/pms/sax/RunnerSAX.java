@@ -1,15 +1,15 @@
 package by.gsu.pms.sax;
 
-import org.xml.sax.InputSource;
+import by.gsu.pms.sax.util.ValutesHandler;
+import by.gsu.pms.sax.util.XMLSource;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 import java.io.IOException;
-import java.net.URL;
 
-public class Main {
+public class RunnerSAX {
 
     public static void main(String[] args) throws ParserConfigurationException, SAXException, IOException {
         SAXParserFactory factory = SAXParserFactory.newInstance();
@@ -17,7 +17,7 @@ public class Main {
 
         ValutesHandler handler = new ValutesHandler();
 
-        parser.parse(new InputSource(new URL("http://www.cbr.ru/scripts/XML_daily.asp").openStream()), handler);
+        parser.parse(XMLSource.getInputSource(), handler);
         System.out.println(handler.getValutes());
     }
 }

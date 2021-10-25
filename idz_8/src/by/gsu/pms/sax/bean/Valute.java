@@ -1,4 +1,10 @@
-package by.gsu.pms.sax;
+package by.gsu.pms.sax.bean;
+
+import org.xml.sax.SAXException;
+
+import java.text.NumberFormat;
+import java.text.ParseException;
+import java.util.Locale;
 
 public class Valute {
     private String id;
@@ -36,6 +42,9 @@ public class Valute {
     public void setNumCode(int numCode) {
         this.numCode = numCode;
     }
+    public void setNumCode(String numCode) {
+        setNumCode(Integer.parseInt(numCode));
+    }
 
     public void setCharCode(String charCode) {
         this.charCode = charCode;
@@ -47,6 +56,16 @@ public class Valute {
 
     public void setValue(int value) {
         this.value = value;
+    }
+    public void setValue(String value) {
+        NumberFormat format = NumberFormat.getInstance(Locale.FRANCE);
+        double d = 0;
+        try {
+            d = format.parse(value).doubleValue();
+        } catch (ParseException e) {
+            throw new NumberFormatException();
+        }
+        setValue((int) Math.round(d * 1000));
     }
 
     public String getId() {

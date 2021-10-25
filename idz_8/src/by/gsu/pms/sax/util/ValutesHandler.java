@@ -1,5 +1,8 @@
-package by.gsu.pms.sax;
+package by.gsu.pms.sax.util;
 
+import by.gsu.pms.sax.bean.Valute;
+import by.gsu.pms.sax.util.Constants;
+import by.gsu.pms.sax.util.Tag;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
@@ -11,16 +14,6 @@ import java.util.List;
 import java.util.Locale;
 
 public class ValutesHandler extends DefaultHandler {
-    private enum Tag {
-        VALCURS,
-        VALUTE,
-        NUMCODE,
-        CHARCODE,
-        NOMINAL,
-        NAME,
-        VALUE;
-    }
-
     private List<Valute> valutes = new ArrayList<>();
 
     private Tag currentTag;
@@ -35,27 +28,20 @@ public class ValutesHandler extends DefaultHandler {
         currentTag = Tag.valueOf(qName.toUpperCase());
         if (Tag.VALUTE == currentTag) {
             valutes.add(new Valute());
-            getCurrentValute().setId(attributes.getValue("ID"));
+            getCurrentValute().setId(attributes.getValue(Constants.ID_ATTRIBUTE));
         }
     }
 
     @Override
     public void characters(char[] ch, int start, int length) throws SAXException {
         if (Tag.NUMCODE == currentTag) {
-            getCurrentValute().setNumCode(Integer.parseInt(new String(ch, start, length)));
+            getCurrentValute().setNumCode(new String(ch, start, length));
         } else if (Tag.CHARCODE == currentTag) {
             getCurrentValute().setCharCode(new String(ch, start, length));
         } else if (Tag.NAME == currentTag) {
             getCurrentValute().setName(new String(ch, start, length));
         } else if (Tag.VALUE == currentTag) {
-            NumberFormat format = NumberFormat.getInstance(Locale.FRANCE);
-            double d = 0;
-            try {
-                d = format.parse(new String(ch, start, length)).doubleValue();
-            } catch (ParseException e) {
-                throw new SAXException(e);
-            }
-            getCurrentValute().setValue((int) Math.round(d * 1000));
+            getCurrentValute().setValue(new String(ch, start, length));
         }
     }
 
